@@ -1,7 +1,8 @@
 <h1 align="center">Hi 👋, I'm Abhishek Dukare</h1>
 <h3 align="center">A passionate frontend developer from India</h3>
 
-![68747470733a2f2f696d616765732e73717561726573706163652d63646e2e636f6d2f636f6e74656e742f76312f3537363966633430316236333162616231616464623261622f313534313538303631313632342d5445363451474b524a4738535741495553374e532f6b6](https://github.com/AbhiDukare/AbhiDukare.github.io/assets/111838547/56012ae8-0d38-4ea1-a1e5-7df99f7bbe3b)
+
+<img align="right" ait="Coding"  width="400" src="https://github.com/AbhiDukare/AbhiDukare.github.io/assets/111838547/56012ae8-0d38-4ea1-a1e5-7df99f7bbe3b"/>
 
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=abhidukare&label=Profile%20views&color=0e75b6&style=flat" alt="abhidukare" /> </p>
