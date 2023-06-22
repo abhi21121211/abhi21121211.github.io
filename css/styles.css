@@ -112,7 +112,7 @@ header.sticky {
   position: fixed;
   z-index: 999;
 }
-#nav-menu.active {
+#menu.active {
   display: block;
 }
 #mobile-menu-open {
@@ -736,14 +736,14 @@ height: 180px;
   #mobile-menu-close {
     display: block;
   }
-  #nav-menu {
+  #menu {
     height: 100%;
     overflow-y: auto;
     box-shadow: none;
     border-radius: 0;
     width: 100%;
   }
-  #nav-menu li {
+  #menu li {
     display: block;
     margin-bottom: 10px;
   }
