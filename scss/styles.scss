@@ -194,7 +194,7 @@ header {
     }
 }
 
-#menu {
+#nav-menu {
     &.active {
         display: block;
     }
@@ -921,7 +921,7 @@ footer {
         display: block;
     }
 
-    #menu {
+    #nav-menu {
         height: 100%;
         overflow-y: auto;
         box-shadow: none;
