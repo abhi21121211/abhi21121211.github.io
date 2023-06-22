@@ -19,7 +19,7 @@
 </script>
 </head>
 
-<body>
+<body id="home">
     <div id="mobile-menu-open" class="shadow-large">
         <i class="fa fa-bars" aria-hidden="true"></i>
     </div>
@@ -30,22 +30,25 @@
         </div>
         <ul id="menu" class="shadow">
             <li>
-                <a href="#about">About</a>
+                <a href="#Home" class="nav-link home">Home</a>
+            </li>
+            <li>
+                <a href="#about" class="nav-link about">About</a>
             </li>
             <!-- <li>
                 <a href="#experience">Experience</a>
             </li> -->
             <li>
-                <a href="#projects">Projects</a>
+                <a href="#projects" class="nav-link projects">Projects</a>
             </li>
             <li>
-                <a href="#education">Github</a>
+                <a href="#education" class="nav-link resume">Github</a>
             </li>
             <li>
-                <a href="#skills">Skills</a>
+                <a href="#skills" class="nav-link skills">Skills</a>
             </li>
             <li>
-                <a href="#contact">Contact</a>
+                <a href="#contact" class="nav-link contact">Contact</a>
             </li>
         </ul>
     </header>
@@ -55,7 +58,7 @@
         <div id="lead-content">
             <div class="img_div">
                 <img src="images/profileimg.jpg" alt="">
-                <div> <h1>Abhishek Dukare</h1>
+                <div> <h1 id="cuser-detail-nam">Abhishek Dukare</h1>
                     <h2>Full Stack Developer</h2></div>
                
             </div>
@@ -82,7 +85,7 @@
                     <h2 class="heading">About Me</h2>
                 </div>
                 <div class="col-md-8">
-                    <p>
+                    <p id="user-detail-intro">
                         I'm Abhishek Dukare, a highly motivated individual who recently completed my graduation in Computer Applications (BCA) from KJS College in Kopargaon, which is affiliated with Une University. Currently, I'm pursuing the full stack development program at Masai School in Unit 6. This program is helping me gain expertise in a wide range of technologies and frameworks.
 
                         I live in Khamgaon, a charming town located in the Yeola taluka of Nashik, Maharashtra. I'm passionate about software development and constantly strive to enhance my skills in this field. Exploring the ever-evolving world of software development is my ultimate goal.
@@ -93,35 +96,7 @@
     </div>
     <!-- End #about -->
 
-    <!-- <div id="experience" class="background-alt">
-        <h2 class="heading">Experience</h2>
-        <div id="experience-timeline">
-            <div data-date="September 2015 – September 2016">
-                <h3>Employer Name</h3>
-                <h4>Job Title</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
-                </p>
-            </div>
-
-            <div data-date="September 2015 – September 2016">
-                <h3>Employer Name</h3>
-                <h4>Job Title</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
-                </p>
-            </div>
-
-            <div data-date="September 2015 – September 2016">
-                <h3>Employer Name</h3>
-                <h4>Job Title</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
-                </p>
-            </div>
-        </div>
-    </div> -->
-    <!-- End #experience -->
+   
 
    
 
@@ -135,11 +110,11 @@
                     </div>
                     <!-- End .project-image -->
                     <div class="project-info">
-                        <h3>Bluefly Clone</h3>
-                        <p>
+                        <h3 class="project-title">Bluefly Clone</h3>
+                        <p class="project-description">
                             "Bluefly.com" is a collaborative project completed during Unit 4 Construct Week 1 at Masai School. Our team of four members worked together to develop an e-commerce website. The project involved implementing features using html, JavaScript, css. like product listings, search functionality, user authentication, shopping cart management, and secure payments. It showcases our skills in full stack development and highlights our ability to work effectively as a team. Explore Bluefly.com to experience our successful collaboration.
                         </p>
-                        <a href="https://bluefly-clone-team5.netlify.app">View Project</a>
+                        <a class="project-deployed-link" href="https://bluefly-clone-team5.netlify.app">View Project</a>
                     </div>
                     <!-- End .project-info -->
                 </div>
