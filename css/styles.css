@@ -453,7 +453,7 @@ footer {
   padding: 15px;
   border: 1px solid #dcd9d9;
   text-align: left;
-  height: 650px;
+  /* height: 650px; */
 }
 
 .education-block .github_stat{
