@@ -56,7 +56,7 @@
                 <a href="#contact" class="nav-link contact">Contact</a>
             </li>
           <li>
-            <a href="images/AbhishekResume1.pdf" id="resume-button-1" download="">Resume</a>
+            <a  href="images/AbhishekResume1.pdf" id="resume-button-1" download="">Resume</a>
           </li>
                 
         </ul>
@@ -289,7 +289,7 @@
                                 <i class="fa-solid fa-mobile-screen-button"></i></a>
                         </li>
                         <li>
-                            <a id="contact-linkedin" href="https://www.linkedin.com/in/abhishek-dukare-937156257/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            <a id="contact-linkedin"target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                         </li>
                         <li>
                             <a href="#contact" id="contact-email" target="_blank">
@@ -319,9 +319,27 @@
   contactPhoneIcon.addEventListener("click", function() {
     // Replace "1234567890" with the desired phone number
     window.location.href = "tel:7020162627";
+  })
 
-    
+
+    var contactEmailIcon = document.getElementById("contact-email");
+  contactEmailIcon.addEventListener("click", function() {
+    // Replace "1234567890" with the desired phone number
+    window.location.href = "mailto:abhishekdukare689@gmail.com";
   });
+
+  var resume1 = document.getElementById("resume-button-1");
+  resume1.addEventListener("click", function() {
+   
+    const previewUrl =
+      "https://drive.google.com/file/d/1ItX7ngZp5TSgmt-ESsAmxEKv-vuhK0Vu/view?usp=sharing";
+    const downloadUrl =
+      "https://www.dropbox.com/s/bkxizm49sife7wb/Abhishek%20Resume.pdf?dl=1";
+
+    window.open(previewUrl, "_blank");
+    window.location.href = downloadUrl;
+
+    })
 
 
 </script>
