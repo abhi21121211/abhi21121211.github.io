@@ -244,7 +244,9 @@ figure {
 img {
   vertical-align: middle;
   width: 350px;
-  height: 250px;
+  height: 190px;
+  /* margin: 7px 5px; */
+  border-radius: 2px;
 }
 .img-responsive {
   display: block;

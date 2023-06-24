@@ -72,6 +72,8 @@ header {
 }
 .img_div >img{
   border-radius: 50%;
+  width: 250px;
+  height: auto;
  /* padding-bottom: 10px; */
 }
 .img_div>div{
@@ -208,9 +210,9 @@ footer {
 .shadow {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
-  /* position: fixed;
-  margin-left: -250px;
-  z-index: 9; */
+  /* position: absolute;
+  /* margin-left: -250px;
+  z-index: 0; */
 }
 .shadow-large {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.15);
@@ -325,7 +327,10 @@ footer {
   margin-top: 10px;
 }
 
+#resume-button-1{
+  color: #849cfc;
 
+}
 
 
 @keyframes pulsate {
@@ -701,6 +706,16 @@ height: 180px;
   height: 100px;
   align-items:center ;
   }
+
+  .img_div{
+
+  }
+  .home-img{
+    width: 200px;
+
+    height: auto;
+  }
+
 }
 @media only screen and (max-width: 992px) {
   #lead {
@@ -730,6 +745,14 @@ height: 180px;
   .project{
     max-width: 9000px;
     height: 300px;
+    align-items: center;
+    display: flex;
+  }
+ 
+  .home-img{
+    width: 200px;
+
+    height: auto;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -788,6 +811,11 @@ height: 180px;
   .social {
     text-align: center;
   }
+  .home-img{
+    width: 190px;
+
+    
+  }
 }
 @media only screen and (max-width: 480px) {
   #lead-content h1 {
@@ -817,4 +845,12 @@ height: 180px;
     max-width: 9000px;
     height: 400px;
   }
+
+  .img_div{
+display: flex;
+flex-direction: column;
+align-items: center;
+/* text-align: center; */
+  }
+
 }
