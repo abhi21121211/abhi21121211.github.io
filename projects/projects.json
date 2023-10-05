@@ -1,0 +1,64 @@
+[
+  
+  {
+    "name": "Electon",
+    "desc": "Electone.com, your ultimate e-commerce website for purchasing top-quality electronic gadgets at affordable prices.",
+    "image": "electon-home",
+    "category": "basicweb",
+    "links": {
+      "view": "https://electon.vercel.app/",
+      "code": "https://github.com/thisiskmv/Electon-clone"
+    }
+  },
+  {
+    "name": "Shopclues Clone",
+    "desc": "ShopClues Clone, a meticulously crafted e-commerce platform that brings you the essence of India's leading online shopping website, ShopClues.com.",
+    "image": "shopclues-home",
+    "category": "basicweb",
+    "links": {
+      "view": "https://shopclues-clone-w5.netlify.app/",
+      "code": "https://github.com/ShubhamRaut187/Shopclues.com-Masai_Unit-5_CW"
+    }
+  },
+  {
+    "name": "Bluefly Clone",
+    "desc": "Bluefly.com website clone is a meticulously crafted online fashion retail platform inspired by the popular original.v",
+    "image": "bluefly-home",
+    "category": "basicweb",
+    "links": {
+      "view": "https://bluefly-clone-team5.netlify.app/",
+      "code": "https://github.com/Mzsalmani02/bluefly_clone"
+    }
+  },
+  {
+    "name": "Portfolio 1",
+    "desc": "I proudly present my skills, accomplishments, and creative journey in the field of development.",
+    "image": "portfolio1-home",
+    "category": "basicweb",
+    "links": {
+      "view": "https://abhi21121211.github.io/",
+      "code": "https://github.com/abhi21121211/abhi21121211.github.io"
+    }
+  },
+  {
+    "name": "Portfolio 2",
+    "desc": "I proudly present my skills, accomplishments, and creative journey in the field of development.",
+    "image": "portfolio2-home",
+    "category": "basicweb",
+    "links": {
+      "view": "https://abhishek-dukare-portfolio-2.netlify.app/",
+      "code": "https://github.com/abhi21121211/Portfolio-2"
+    }
+  },
+
+  {
+    "name": "Foodroket",
+    "desc": "It's Responsive Food and Restaurant Website using Bootstrap 5.",
+    "image": "foodrocket-home",
+    "category": "basicweb",
+    "links": {
+      "view": "https://foodrocket-web.netlify.app/",
+      "code": "https://github.com/abhi21121211/FoodRocket"
+    }
+  }
+]
