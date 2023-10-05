@@ -1,0 +1,303 @@
+// /* Variables */
+// :root {
+//     --base-color: #3498db;
+//     --base-color-hover: darken(var(--base-color), 10%);
+//     --background: #fff;
+//     --background-alt: #f2f2f5;
+//     --border: #dcd9d9;
+//     --heading: #374054;
+//     --text: #74808a;
+// }
+
+// /* Mixins */
+// @mixin transition($duration: 0.5s, $func: ease, $property: all) {
+//     transition: $duration $func $property;
+// }
+
+// @mixin placeholder {
+//     &::-webkit-input-placeholder {
+//         @content;
+//     }
+
+//     &:-moz-placeholder {
+//         @content;
+//         opacity: 1;
+//     }
+
+//     &::-moz-placeholder {
+//         @content;
+//         opacity: 1;
+//     }
+
+//     &:-ms-input-placeholder {
+//         @content;
+//     }
+// }
+
+// /* Global Styles */
+// body {
+//     font-family: 'Lato', sans-serif;
+//     font-size: 16px;
+// }
+
+// body.active {
+//     overflow: hidden;
+//     z-index: -1;
+// }
+
+// .no-js #experience-timeline > div {
+//     background: var(--background);
+//     padding: 10px;
+//     margin-bottom: 10px;
+//     border: 1px solid var(--border);
+// }
+
+// .no-js #experience-timeline > div h3 {
+//     font-size: 1.5em;
+//     font-weight: 300;
+//     color: var(--heading);
+//     display: inline-block;
+//     margin: 0;
+// }
+
+// .no-js #experience-timeline > div h4 {
+//     font-size: 1.2em;
+//     font-weight: 300;
+//     color: #7e8890;
+//     margin: 0 0 15px 0;
+// }
+
+// .no-js #experience-timeline > div p {
+//     color: var(--text);
+//     font-size: 0.9em;
+//     margin: 0;
+// }
+
+// .no-js #experience-timeline:before,
+// .no-js #experience-timeline:after {
+//     content: none;
+// }
+
+// @keyframes dropHeader {
+//     0% {
+//         transform: translateY(-100%);
+//     }
+//     100% {
+//         transform: translateY(0);
+//     }
+// }
+
+// header {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     text-align: center;
+//     z-index: 10;
+//     animation-name: dropHeader;
+//     animation-iteration-count: 1;
+//     animation-timing-function: ease;
+//     animation-duration: 0.75s;
+// }
+
+// header ul {
+//     display: inline-block;
+//     background: var(--background);
+//     text-align: center;
+//     padding: 10px;
+//     margin: 0;
+//     border-bottom-right-radius: 4px;
+//     border-bottom-left-radius: 4px;
+// }
+
+// header li {
+//     display: inline-block;
+// }
+
+// header a {
+//     display: block;
+//     color: var(--base-color);
+//     padding: 10px;
+// }
+
+// header a:hover {
+//     color: var(--base-color-hover);
+//     text-decoration: none;
+//     background: #eee;
+//     border-radius: 4px;
+// }
+
+// header a:focus {
+//     color: var(--base-color);
+//     text-decoration: none;
+// }
+
+// header.active {
+//     display: block;
+// }
+
+// header.sticky {
+//     position: fixed;
+//     z-index: 999;
+// }
+
+// #menu.active {
+//     display: block;
+// }
+
+// #mobile-menu-open {
+//     display: none;
+//     cursor: pointer;
+//     position: fixed;
+//     right: 15px;
+// }
+// #mobile-menu-open .hamburger {
+//     display: inline-block;
+//     width: 32px;
+//     height: 24px;
+//     position: relative;
+//     cursor: pointer;
+// }
+
+// #mobile-menu-open .hamburger span {
+//     display: block;
+//     background-color: var(--base-color);
+//     height: 4px;
+//     width: 100%;
+//     position: absolute;
+//     left: 0;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     transition: background-color 0.3s;
+// }
+
+// #mobile-menu-open .hamburger span::before,
+// #mobile-menu-open .hamburger span::after {
+//     content: "";
+//     display: block;
+//     background-color: var(--base-color);
+//     height: 4px;
+//     width: 100%;
+//     position: absolute;
+//     transition: background-color 0.3s;
+// }
+
+// #mobile-menu-open .hamburger span::before {
+//     top: -10px;
+// }
+
+// #mobile-menu-open .hamburger span::after {
+//     bottom: -10px;
+// }
+
+// #mobile-menu-open.open .hamburger span {
+//     background-color: transparent;
+// }
+
+// #mobile-menu-open.open .hamburger span::before,
+// #mobile-menu-open.open .hamburger span::after {
+//     background-color: var(--base-color);
+// }
+
+// #mobile-menu {
+//     display: none;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     z-index: 9999;
+//     background: var(--background);
+//     text-align: center;
+//     padding: 30px;
+//     overflow-y: auto;
+// }
+
+// #mobile-menu ul {
+//     list-style: none;
+//     padding: 0;
+//     margin: 0;
+// }
+
+// #mobile-menu li {
+//     margin-bottom: 20px;
+// }
+
+// #mobile-menu a {
+//     display: block;
+//     color: var(--base-color);
+//     font-weight: 600;
+//     font-size: 1.2em;
+//     text-decoration: none;
+//     transition: color 0.3s;
+// }
+
+// #mobile-menu a:hover {
+//     color: var(--base-color-hover);
+// }
+
+// #mobile-menu-close {
+//     display: inline-block;
+//     cursor: pointer;
+//     position: fixed;
+//     right: 15px;
+//     top: 15px;
+// }
+
+// #mobile-menu-close span {
+//     display: block;
+//     background-color: var(--base-color);
+//     height: 4px;
+//     width: 100%;
+//     position: relative;
+//     transition: background-color 0.3s;
+// }
+
+// #mobile-menu-close span::before,
+// #mobile-menu-close span::after {
+//     content: "";
+//     display: block;
+//     background-color: var(--base-color);
+//     height: 4px;
+//     width: 100%;
+//     position: absolute;
+//     transition: background-color 0.3s;
+// }
+
+// #mobile-menu-close span::before {
+//     top: -10px;
+// }
+
+// #mobile-menu-close span::after {
+//     bottom: -10px;
+// }
+
+// #mobile-menu-close.open span {
+//     background-color: transparent;
+// }
+
+// #mobile-menu-close.open span::before,
+// #mobile-menu-close.open span::after {
+//     background-color: var(--base-color);
+// }
+
+// /* Media Queries */
+// @media screen and (max-width: 768px) {
+//     #menu {
+//         display: none;
+//     }
+
+//     #mobile-menu-open {
+//         display: block;
+//     }
+// }
+
+// @media screen and (min-width: 769px) {
+//     #mobile-menu {
+//         display: none;
+//     }
+
+//     header.active {
+//         display: block;
+//     }
+// }
