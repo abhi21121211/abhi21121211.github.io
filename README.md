@@ -2,7 +2,7 @@
 
 Welcome to my portfolio! Here, I proudly present my skills, accomplishments, and creative journey in the field of development. This collection is a reflection of my unwavering passion for the craft and my continuous pursuit of excellence.
 
-<img style="width: 200px" src="assets/images/portfolio-3-logo-3.png" />
+<img style="width: 200px" src="assets/images/logo-2.png" />
 <!-- <img src="assets/images/portfolio-3-logo-2.jpg" /> -->
 ## Introduction
 
