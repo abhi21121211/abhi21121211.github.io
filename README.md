@@ -33,7 +33,7 @@ I would love to connect with you and discuss collaboration opportunities or answ
 
 - Email: abhishekdukare689@gmail.com
 - LinkedIn: (https://www.linkedin.com/in/abhishek-dukare-937156257)
-- Portfolio Website: (https://github.com/abhi21121211/abhi21121211.github.io)
+- Portfolio Website: (https://abhi21121211.github.io)
 
 <img src="assets/images/portfolio-screenshot/portfolio-3-home.png" />
 
