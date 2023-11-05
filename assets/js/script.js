@@ -284,7 +284,7 @@ resume1.addEventListener("click", function () {
     "https://drive.google.com/file/d/1L2iLQc9jbfP9uGNFg96UOzsNN3NsRu2e/view?usp=sharing";
     
   const downloadUrl =
-    "https://www.dropbox.com/s/vryemzdjb9vrc81/Abhishek%20Dukare.pdf?dl=1";
+    "https://www.dropbox.com/s/vryemzdjb9vrc81/Abhishek%20Dukare.pdf?dl=0";
 
   window.open(previewUrl, "_blank");
   window.location.href = downloadUrl;
