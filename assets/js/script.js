@@ -278,7 +278,7 @@ srtop.reveal(".contact-c .container .form-group", { delay: 400 });
 
 //navbar resume btn
 
-var resume1 = document.getElementById("resume-link-1");
+var resume1 = document.getElementById("resume-button-1");
 resume1.addEventListener("click", function () {
   const previewUrl =
     "https://drive.google.com/file/d/1L2iLQc9jbfP9uGNFg96UOzsNN3NsRu2e/view?usp=sharing";
