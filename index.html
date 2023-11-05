@@ -362,11 +362,20 @@
       <div class="share">
 
         <a id="contact-linkedin" href="https://www.linkedin.com/in/abhishek-dukare" class="fab fa-linkedin"
-          aria-label="LinkedIn" target="_blank"></a>
+          aria-label="LinkedIn" target="_blank"> 
+        </a>
+
         <a id="contact-github" href="https://github.com/abhi21121211" class="fab fa-github" aria-label="GitHub"
-          target="_blank"></a>
-        <a id="contact-email" href="mailto:abhishekdukare689@gmail.com" class="fas fa-envelope" aria-label="Mail"
-          target="_blank"></a>
+          target="_blank">
+        </a>
+
+        <!-- <a id="contact-email" href="mailto:abhishekdukare689@gmail.com" class="fas fa-envelope" aria-label="Mail"
+          target="_blank">
+        </a> -->
+        <a href="#contact" id="contact-email" target="_blank">
+          <i class="fas fa-envelope"></i>
+      </a>
+
         <a id="contact-phone" href="" target="_blank" class="fa-solid fas fa-phone-alt">
         </a>
 
@@ -467,6 +476,15 @@
       }
     });
   });
+
+
+
+
+  var contactEmailIcon = document.getElementById("contact-email");
+    contactEmailIcon.addEventListener("click", function () {
+        // Replace "1234567890" with the desired phone number
+        window.location.href = "mailto:abhishekdukare689@gmail.com";
+    });
 </script>
 
 
