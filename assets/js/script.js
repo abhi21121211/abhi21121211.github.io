@@ -239,28 +239,28 @@ const srtop = ScrollReveal({
 });
 
 /* SCROLL HOME */
-srtop.reveal(".home .content h3", { delay: 200 });
-srtop.reveal(".home .content p", { delay: 200 });
-srtop.reveal(".home .content .btn", { delay: 200 });
+srtop.reveal(".home-c .content h3", { delay: 200 });
+srtop.reveal(".home-c .content p", { delay: 200 });
+srtop.reveal(".home-c .content .btn", { delay: 200 });
 
-srtop.reveal(".home .image", { delay: 400 });
-srtop.reveal(".home .linkedin", { interval: 600 });
-srtop.reveal(".home .github", { interval: 800 });
-srtop.reveal(".home .twitter", { interval: 1000 });
-srtop.reveal(".home .telegram", { interval: 600 });
-srtop.reveal(".home .instagram", { interval: 600 });
-srtop.reveal(".home .dev", { interval: 600 });
+srtop.reveal(".home-c .image", { delay: 400 });
+srtop.reveal(".home-c .linkedin", { interval: 600 });
+srtop.reveal(".home-c .github", { interval: 800 });
+srtop.reveal(".home-c .twitter", { interval: 1000 });
+srtop.reveal(".home-c .telegram", { interval: 600 });
+srtop.reveal(".home-c .instagram", { interval: 600 });
+srtop.reveal(".home-c .dev", { interval: 600 });
 
 /* SCROLL ABOUT */
-srtop.reveal(".about .content h3", { delay: 200 });
-srtop.reveal(".about .content .tag", { delay: 200 });
-srtop.reveal(".about .content p", { delay: 200 });
-srtop.reveal(".about .content .box-container", { delay: 200 });
-srtop.reveal(".about .content .resumebtn", { delay: 200 });
+srtop.reveal(".about-c .content h3", { delay: 200 });
+srtop.reveal(".about-c .content .tag", { delay: 200 });
+srtop.reveal(".about-c .content p", { delay: 200 });
+srtop.reveal(".about-c .content .box-container", { delay: 200 });
+srtop.reveal(".about-c .content .resumebtn", { delay: 200 });
 
 /* SCROLL SKILLS */
-srtop.reveal(".skills .container", { interval: 200 });
-srtop.reveal(".skills .container .bar", { delay: 400 });
+srtop.reveal(".skills-c .container", { interval: 200 });
+srtop.reveal(".skills-c .container .bar", { delay: 400 });
 
 /* SCROLL EDUCATION */
 srtop.reveal(".education .box", { interval: 200 });
@@ -273,8 +273,8 @@ srtop.reveal(".experience .timeline", { delay: 400 });
 srtop.reveal(".experience .timeline .container", { interval: 400 });
 
 /* SCROLL CONTACT */
-srtop.reveal(".contact .container", { delay: 400 });
-srtop.reveal(".contact .container .form-group", { delay: 400 });
+srtop.reveal(".contact-c .container", { delay: 400 });
+srtop.reveal(".contact-c .container .form-group", { delay: 400 });
 
 //navbar resume btn
 
