@@ -46,8 +46,8 @@
     "image": "portfolio1-home",
     "category": "basicweb",
     "links": {
-      "view": "https://abhi21121211.github.io/",
-      "code": "https://github.com/abhi21121211/abhi21121211.github.io"
+      "view": "https://abhishek-dukare-portfolio-1.vercel.app/",
+      "code": "https://github.com/abhi21121211/portfolio-1"
     }
   },
   {
@@ -66,8 +66,8 @@
     "image": "portfolio-3-home",
     "category": "basicweb",
     "links": {
-      "view": "https://abhishek-dukare-portfolio-3.netlify.app/",
-      "code": "https://github.com/abhi21121211/portfolio-3"
+      "view": "https://abhi21121211.github.io/",
+      "code": "https://github.com/abhi21121211/abhi21121211.github.io"
     }
   }
 ]
