@@ -281,7 +281,7 @@ srtop.reveal(".contact-c .container .form-group", { delay: 400 });
 var resume1 = document.getElementById("resume-button-1");
 resume1.addEventListener("click", function () {
   const previewUrl =
-    "https://drive.google.com/file/d/1L2iLQc9jbfP9uGNFg96UOzsNN3NsRu2e/view?usp=sharing";
+    "https://drive.google.com/file/d/11bK4FKFlioVoD2HiNnaRXMe_KEvAIwRX/view?usp=sharing";
     
   const downloadUrl =
     "https://www.dropbox.com/s/vryemzdjb9vrc81/Abhishek%20Dukare.pdf?dl=1";
