@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Abhishek's Portfolio</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .blog-post {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-thumbnail {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-post h3 {
+            padding: 20px 20px 10px;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .blog-post p {
+            padding: 0 20px 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .blog-meta {
+            padding: 0 20px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .blog-meta .date {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .blog-meta .tags {
+            display: flex;
+            gap: 5px;
+        }
+
+        .tag {
+            background: #007bff;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .read-more {
+            margin: 0 20px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .read-more:hover {
+            background: #0056b3;
+        }
+
+        .blog-content-section {
+            display: none;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-controls {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .text-size-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-size-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .text-size-btn:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .text-size-btn:active {
+            transform: scale(0.95);
+        }
+
+        .text-size-display {
+            font-weight: bold;
+            color: #333;
+            min-width: 50px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .blog-content {
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .blog-content h3 {
+            color: #333;
+            margin: 30px 0 15px;
+        }
+
+        .blog-content pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .blog-content code {
+            font-family: 'Courier New', monospace;
+        }
+
+        .blog-content ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .blog-content li {
+            margin: 5px 0;
+        }
+
+        .blog-content blockquote {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .blog-content blockquote::before {
+            content: '"';
+            font-size: 3rem;
+            color: #007bff;
+            line-height: 0;
+            margin-right: 10px;
+        }
+
+        .close-blog {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .close-blog:hover {
+            background: #c82333;
+        }
+
+        .blog-content-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .blog-content-meta .author {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .blog-content-meta .date {
+            color: #888;
+        }
+
+        .blog-content-meta .tags {
+            display: flex;
+            gap: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+
+            .blog-content-section {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            .blog-content-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .blog-controls {
+                justify-content: center;
+            }
+
+            .text-size-controls {
+                padding: 6px 10px;
+                gap: 8px;
+            }
+
+            .text-size-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+            }
+
+            .text-size-display {
+                font-size: 12px;
+                min-width: 40px;
+            }
+        }
+
+        /* Additional styling for better integration with your portfolio theme */
+        .blog {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .blog .heading {
+            text-align: center;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .blog .heading span {
+            color: #00d4ff;
+        }
+
+        /* Loading state */
+        .blog-container.loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
+
+        .blog-container.loading::after {
+            content: "Loading blog posts...";
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .blog-images-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 24px 0;
+            justify-content: center;
+        }
+
+        .blog-inline-image {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            object-fit: cover;
+            transition: transform 0.2s;
+        }
+
+        .blog-inline-image:hover {
+            transform: scale(1.04);
+        }
+
+        .blog-single-image {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            padding: 20px 0;
+        }
+
+        .blog-single-image .blog-inline-image {
+            max-width: 400px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-single-image .blog-inline-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .blog-images-gallery {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+            }
+
+            .blog-inline-image {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="index.html#home" class="logo"><img src="assets/images/logo-2.png" alt=""> Abhishek</a>
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <h2 class="heading"><i class="fas fa-blog"></i> My <span>Blog</span></h2>
+
+        <!-- Blog Posts Container -->
+        <div class="blog-container" id="blogContainer">
+            <!-- Blog posts will be dynamically loaded here -->
+        </div>
+
+        <!-- Blog Content Section (Hidden by default) -->
+        <div class="blog-content-section" id="blogContent">
+            <div class="blog-controls">
+                <div class="text-size-controls">
+                    <button class="text-size-btn" id="decreaseText" title="Decrease Text Size">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <span class="text-size-display" id="textSizeDisplay">100%</span>
+                    <button class="text-size-btn" id="increaseText" title="Increase Text Size">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button class="text-size-btn" id="resetText" title="Reset Text Size">
+                        <i class="fas fa-undo"></i>
+                    </button>
+                </div>
+            </div>
+            <h1 class="blog-title"></h1>
+            <div class="blog-content-meta">
+                <span class="author"></span>
+                <span class="date"></span>
+                <div class="tags"></div>
+            </div>
+            <div class="blog-content"></div>
+            <button class="close-blog">Close</button>
+        </div>
+    </section>
+
+    <!-- footer section starts -->
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>Abhishek's Portfolio</h3>
+                <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br /> <br />
+                    Keep Rising
+                    🚀. Connect with me over live chat!</p>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="index.html#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+                <a href="index.html#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+                <a href="index.html#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+                <a href="index.html#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+                <a href="index.html#projects"><i class="fas fa-chevron-circle-right"></i> projects</a>
+                <a href="index.html#github"><i class="fas fa-chevron-circle-right"></i> github</a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <p> <i id="phone" class="fas fa-phone"></i>+91 7020162627</p>
+                <p> <i class="fas fa-envelope"></i>abhishekdukare689@gmail.com</p>
+                <p> <i class="fas fa-map-marked-alt"></i>New Delhi, India - 110092</p>
+                <div class="share">
+
+                    <a id="contact-linkedin" href="https://www.linkedin.com/in/abhishek-dukare" class="fab fa-linkedin"
+                        aria-label="LinkedIn" target="_blank">
+                    </a>
+
+                    <a id="contact-github" href="https://github.com/abhi21121211" class="fab fa-github"
+                        aria-label="GitHub" target="_blank">
+                    </a>
+
+                    <a id="contact-email" target="_blank">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
+                    <a id="contact-phone" href="" target="_blank" class="fa-solid fas fa-phone-alt">
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a
+                href="https://www.linkedin.com/in/abhishek-dukare"> Abhishek Dukare</a></h1>
+
+    </section>
+    <!-- footer section ends -->
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Abhishek Dukare. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const blogContainer = document.getElementById('blogContainer');
+
+            // Add loading state
+            blogContainer.classList.add('loading');
+
+            // Fetch blog posts from JSON file
+            fetch('blog.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Loaded blog data:', data); // Debug log
+                    blogContainer.classList.remove('loading');
+
+                    if (data && data.blogs) {
+                        // Populate blog posts
+                        data.blogs.forEach(blog => {
+                            const article = createBlogPost(blog);
+                            blogContainer.appendChild(article);
+                        });
+
+                        // Store blog data for content display
+                        initializeBlogContent(data.blogs);
+                    } else {
+                        console.error('Invalid blog data structure:', data);
+                        blogContainer.innerHTML = '<p style="color: white; text-align: center; grid-column: 1 / -1;">No blog posts available at the moment.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading blog posts:', error);
+                    blogContainer.classList.remove('loading');
+                    blogContainer.innerHTML = '<p style="color: white; text-align: center; grid-column: 1 / -1;">Error loading blog posts. Please try again later.</p><p style="color: white; text-align: center; grid-column: 1 / -1; font-size: 0.9rem;">Error details: ' + error.message + '</p>';
+                });
+
+            function createBlogPost(blog) {
+                console.log('Creating blog post:', blog); // Debug log
+                const article = document.createElement('article');
+                article.className = 'blog-post';
+                article.dataset.blogId = blog.id;
+
+                article.innerHTML = `
+                    <img src="${blog.thumbnail}" alt="${blog.title} Thumbnail" class="blog-thumbnail" onerror="this.src='./assets/images/hero.png'">
+                    <h3>${blog.title}</h3>
+                    <p>${blog.description}</p>
+                    <div class="blog-meta">
+                        <span class="date">${formatDate(blog.date)}</span>
+                        <span class="tags">${formatTags(blog.tags)}</span>
+                    </div>
+                    <button class="btn read-more">Read More</button>
+                `;
+
+                return article;
+            }
+
+            function formatDate(dateString) {
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                return new Date(dateString).toLocaleDateString(undefined, options);
+            }
+
+            function formatTags(tags) {
+                return tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+            }
+
+            function initializeBlogContent(blogs) {
+                const blogPosts = {};
+                blogs.forEach(blog => {
+                    blogPosts[blog.id] = blog;
+                });
+
+                const blogContentSection = document.getElementById('blogContent');
+                const blogTitle = document.querySelector('.blog-title');
+                const blogContent = document.querySelector('.blog-content');
+                const blogMeta = document.querySelector('.blog-content-meta');
+
+                // Add click event listeners to Read More buttons
+                document.querySelectorAll('.read-more').forEach(button => {
+                    button.addEventListener('click', function () {
+                        const blogId = this.closest('.blog-post').dataset.blogId;
+                        const post = blogPosts[blogId];
+
+                        blogTitle.textContent = post.title;
+                        blogContent.innerHTML = formatBlogContent(post.content);
+
+                        // Distribute images throughout the blog content
+                        if (post.images && post.images.length > 0) {
+                            const paragraphs = blogContent.querySelectorAll('p');
+                            const totalParagraphs = paragraphs.length;
+                            const totalImages = post.images.length;
+
+                            // Calculate spacing - distribute images evenly
+                            const spacing = Math.floor(totalParagraphs / (totalImages + 1));
+
+                            post.images.forEach(function (imgSrc, index) {
+                                const img = document.createElement('img');
+                                img.src = imgSrc;
+                                img.alt = post.title + ' image ' + (index + 1);
+                                img.className = 'blog-inline-image';
+                                img.onerror = function () {
+                                    this.style.display = 'none';
+                                    console.log('Failed to load image:', imgSrc);
+                                };
+
+                                // Calculate which paragraph to insert after
+                                const targetIndex = Math.min((index + 1) * spacing, totalParagraphs - 1);
+                                const targetParagraph = paragraphs[targetIndex];
+
+                                if (targetParagraph) {
+                                    // Create a container for the single image
+                                    const imageContainer = document.createElement('div');
+                                    imageContainer.className = 'blog-single-image';
+                                    imageContainer.appendChild(img);
+                                    targetParagraph.insertAdjacentElement('afterend', imageContainer);
+                                }
+                            });
+                        }
+
+                        // Update meta information
+                        blogMeta.innerHTML = `
+                            <span class="author">By ${post.author}</span>
+                            <span class="date">${formatDate(post.date)}</span>
+                            <div class="tags">${formatTags(post.tags)}</div>
+                        `;
+
+                        blogContentSection.style.display = 'block';
+                        blogContentSection.scrollIntoView({ behavior: 'smooth' });
+                    });
+                });
+
+                // Add click event listener to Close button
+                const closeButton = document.querySelector('.close-blog');
+                if (closeButton) {
+                    closeButton.addEventListener('click', function () {
+                        blogContentSection.style.display = 'none';
+                    });
+                }
+
+                // Initialize text size controls
+                initializeTextSizeControls();
+            }
+
+            function initializeTextSizeControls() {
+                const decreaseBtn = document.getElementById('decreaseText');
+                const increaseBtn = document.getElementById('increaseText');
+                const resetBtn = document.getElementById('resetText');
+                const textSizeDisplay = document.getElementById('textSizeDisplay');
+                const blogContent = document.querySelector('.blog-content');
+                const blogContentSection = document.getElementById('blogContent');
+
+                let currentSize = 100; // Default size in percentage
+                const minSize = 80; // Minimum size
+                const maxSize = 150; // Maximum size
+                const step = 10; // Size change step
+
+                // Load saved text size from localStorage
+                const savedSize = localStorage.getItem('blogTextSize');
+                if (savedSize) {
+                    currentSize = parseInt(savedSize);
+                    updateTextSize();
+                }
+
+                function updateTextSize() {
+                    blogContent.style.fontSize = currentSize + '%';
+                    textSizeDisplay.textContent = currentSize + '%';
+                    localStorage.setItem('blogTextSize', currentSize.toString());
+                }
+
+                decreaseBtn.addEventListener('click', function () {
+                    if (currentSize > minSize) {
+                        currentSize -= step;
+                        updateTextSize();
+                    }
+                });
+
+                increaseBtn.addEventListener('click', function () {
+                    if (currentSize < maxSize) {
+                        currentSize += step;
+                        updateTextSize();
+                    }
+                });
+
+                resetBtn.addEventListener('click', function () {
+                    currentSize = 100;
+                    updateTextSize();
+                });
+
+                // Add keyboard shortcuts
+                document.addEventListener('keydown', function (e) {
+                    // Only work when blog content is visible
+                    if (blogContentSection.style.display === 'block') {
+                        if (e.ctrlKey || e.metaKey) { // Ctrl/Cmd key
+                            if (e.key === '=' || e.key === '+') {
+                                e.preventDefault();
+                                if (currentSize < maxSize) {
+                                    currentSize += step;
+                                    updateTextSize();
+                                }
+                            } else if (e.key === '-') {
+                                e.preventDefault();
+                                if (currentSize > minSize) {
+                                    currentSize -= step;
+                                    updateTextSize();
+                                }
+                            } else if (e.key === '0') {
+                                e.preventDefault();
+                                currentSize = 100;
+                                updateTextSize();
+                            }
+                        }
+                    }
+                });
+            }
+
+            function formatBlogContent(content) {
+                if (!content) {
+                    console.error('No content provided to formatBlogContent');
+                    return '';
+                }
+
+                // Check if content is an array (new format) or object (old format)
+                if (Array.isArray(content)) {
+                    // New format: content is an array of objects with type and text
+                    let html = '';
+                    content.forEach(item => {
+                        if (item.type === 'paragraph') {
+                            html += `<p>${item.text}</p>`;
+                        } else if (item.type === 'quote') {
+                            html += `<blockquote>${item.text}</blockquote>`;
+                        } else if (item.type === 'heading') {
+                            html += `<h3>${item.text}</h3>`;
+                        } else if (item.type === 'code') {
+                            html += `<pre><code>${item.text}</code></pre>`;
+                        } else if (item.type === 'list') {
+                            html += '<ul>';
+                            item.items.forEach(listItem => {
+                                html += `<li>${listItem}</li>`;
+                            });
+                            html += '</ul>';
+                        }
+                    });
+                    return html;
+                } else {
+                    // Old format: content is an object with intro, sections, and conclusion
+                    let html = content.intro ? `<p>${content.intro}</p>` : '';
+
+                    if (content.sections) {
+                        content.sections.forEach(section => {
+                            html += `<h3>${section.title}</h3>`;
+
+                            if (section.content) {
+                                html += `<p>${section.content}</p>`;
+                            }
+
+                            if (section.code) {
+                                html += `<pre><code>${section.code}</code></pre>`;
+                            }
+
+                            if (section.explanation) {
+                                html += `<p>${section.explanation}</p>`;
+                            }
+
+                            if (section.list) {
+                                html += '<ul>';
+                                section.list.forEach(item => {
+                                    html += `<li>${item}</li>`;
+                                });
+                                html += '</ul>';
+                            }
+                        });
+                    }
+
+                    if (content.conclusion) {
+                        html += `<p>${content.conclusion}</p>`;
+                    }
+
+                    return html;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

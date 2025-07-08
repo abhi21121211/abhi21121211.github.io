@@ -272,6 +272,10 @@ srtop.reveal(".work .box", { interval: 200 });
 srtop.reveal(".experience .timeline", { delay: 400 });
 srtop.reveal(".experience .timeline .container", { interval: 400 });
 
+/* SCROLL github */
+srtop.reveal(".githubinfo .timeline", { delay: 400 });
+srtop.reveal(".githubinfo .timeline .container", { interval: 400 });
+
 /* SCROLL CONTACT */
 srtop.reveal(".contact-c .container", { delay: 400 });
 srtop.reveal(".contact-c .container .form-group", { delay: 400 });
@@ -281,19 +285,14 @@ srtop.reveal(".contact-c .container .form-group", { delay: 400 });
 var resume1 = document.getElementById("resume-button-1");
 resume1.addEventListener("click", function () {
   const previewUrl =
-    "https://drive.google.com/file/d/11bK4FKFlioVoD2HiNnaRXMe_KEvAIwRX/view?usp=sharing";
-    
-  const downloadUrl =
-    "https://www.dropbox.com/s/vryemzdjb9vrc81/Abhishek%20Dukare.pdf?dl=1";
+    "https://drive.google.com/file/d/18UgzmOacuBJKqh47T0dhnYWVD5IkYIYS/view?usp=sharing";
 
   window.open(previewUrl, "_blank");
-  window.location.href = downloadUrl;
 });
-
 
 // PHone contact
 var contactPhoneIcon = document.getElementById("contact-phone");
 contactPhoneIcon.addEventListener("click", function () {
-    // Replace "1234567890" with the desired phone number
-    window.location.href = "tel:7020162627";
-})
+  // Replace "1234567890" with the desired phone number
+  window.location.href = "tel:7020162627";
+});
