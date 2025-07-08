@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Abhishek's Portfolio</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -375,11 +375,11 @@
 <body>
     <!-- Navbar -->
     <header>
-        <a href="index.html#home" class="logo"><img src="assets/images/logo-2.png" alt=""> Abhishek</a>
+        <a href="../index.html#home" class="logo"><img src="../assets/images/logo-2.png" alt=""> Abhishek</a>
         <div id="menu" class="fas fa-bars"></div>
         <nav class="navbar">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="blog.html" class="active">Blog</a></li>
             </ul>
         </nav>
@@ -435,12 +435,12 @@
 
             <div class="box">
                 <h3>quick links</h3>
-                <a href="index.html#home"><i class="fas fa-chevron-circle-right"></i> home</a>
-                <a href="index.html#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-                <a href="index.html#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
-                <a href="index.html#education"><i class="fas fa-chevron-circle-right"></i> education</a>
-                <a href="index.html#projects"><i class="fas fa-chevron-circle-right"></i> projects</a>
-                <a href="index.html#github"><i class="fas fa-chevron-circle-right"></i> github</a>
+                <a href="../index.html#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+                <a href="../index.html#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+                <a href="../index.html#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+                <a href="../index.html#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+                <a href="../index.html#projects"><i class="fas fa-chevron-circle-right"></i> projects</a>
+                <a href="../index.html#github"><i class="fas fa-chevron-circle-right"></i> github</a>
             </div>
 
             <div class="box">
@@ -526,7 +526,7 @@
                 article.dataset.blogId = blog.id;
 
                 article.innerHTML = `
-                    <img src="${blog.thumbnail}" alt="${blog.title} Thumbnail" class="blog-thumbnail" onerror="this.src='./assets/images/hero.png'">
+                    <img src="${blog.thumbnail}" alt="${blog.title} Thumbnail" class="blog-thumbnail" onerror="this.src='../assets/images/hero.png'">
                     <h3>${blog.title}</h3>
                     <p>${blog.description}</p>
                     <div class="blog-meta">

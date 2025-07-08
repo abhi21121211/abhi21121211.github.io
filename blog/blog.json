@@ -6,7 +6,7 @@
       "author": "Abhishek Dukare",
       "slug": "chapter-one-journey-through-web-innovation",
       "date": "2025-07-04",
-      "thumbnail": "./assets/images/blog/blog1.1.webp",
+      "thumbnail": "../assets/images/blog/blog1.1.webp",
       "description": "A tech fiction journey of Aryan, a full-stack developer, as he gets transported into the world of Quick Campus—his own creation—exploring the frontend, backend, DevOps, and the vision behind it.",
       "tags": [
         "Quick Campus",
@@ -20,9 +20,9 @@
       ],
       "summary": "A tech fiction journey of Aryan, a full-stack developer, as he gets transported into the world of Quick Campus—his own creation—exploring the frontend, backend, DevOps, and the vision behind it.",
       "images": [
-        "./assets/images/blog/blog1.1.webp",
-        "./assets/images/blog/blog1.2.webp",
-        "./assets/images/blog/blog1.3.webp"
+        "../assets/images/blog/blog1.1.webp",
+        "../assets/images/blog/blog1.2.webp",
+        "../assets/images/blog/blog1.3.webp"
       ],
       "content": [
         {
@@ -128,12 +128,12 @@
       "title": "Chapter Two: The Code Beneath the Surface",
       "author": "Abhishek Dukare",
       "date": "2025-07-04",
-      "thumbnail": "./assets/images/blog/blog2.1.webp",
+      "thumbnail": "../assets/images/blog/blog2.1.webp",
       "description": "Aryan returns to the digital world of Quick Campus to dive deep into the inner workings of JavaScript—from asynchronous flows to closures and callback hell.",
       "images": [
-        "./assets/images/blog/blog2.1.webp",
-        "./assets/images/blog/blog2.2.webp",
-        "./assets/images/blog/blog2.3.webp"
+        "../assets/images/blog/blog2.1.webp",
+        "../assets/images/blog/blog2.2.webp",
+        "../assets/images/blog/blog2.3.webp"
       ],
       "content": {
         "intro": "JavaScript had always intrigued Aryan—its async powers, mysterious memory behavior, and sometimes unpredictable flow. In this chapter, he journeys back into the code-world to explore asynchronous logic, closures, and the evolution of handling asynchronous operations.",
@@ -190,12 +190,12 @@
       "title": "Chapter Three: The Power of Callbacks and Promises",
       "author": "Abhishek Dukare",
       "date": "2025-07-04",
-      "thumbnail": "./assets/images/blog/blog3.1.webp",
+      "thumbnail": "../assets/images/blog/blog3.1.webp",
       "description": "Aryan returns to the digital world to finally understand JavaScript callbacks, promises, and the event loop that orchestrates it all.",
       "images": [
-        "./assets/images/blog/blog3.1.webp",
-        "./assets/images/blog/blog3.2.webp",
-        "./assets/images/blog/blog3.3.webp"
+        "../assets/images/blog/blog3.1.webp",
+        "../assets/images/blog/blog3.2.webp",
+        "../assets/images/blog/blog3.3.webp"
       ],
       "content": {
         "intro": "After returning from his previous JavaScript journey, Aryan felt closer to understanding the language. But one concept still puzzled him—how callbacks and promises truly worked. With curiosity burning inside, Aryan once again found himself pulled into the digital world where asynchronous logic came alive.",
@@ -257,12 +257,12 @@
       "title": "Chapter Four: Event Loops, The Silent Orchestrator",
       "author": "Abhishek Dukare",
       "date": "2025-07-04",
-      "thumbnail": "./assets/images/blog/blog4.1.webp",
+      "thumbnail": "../assets/images/blog/blog4.1.webp",
       "description": "Aryan uncovers the secret behind JavaScript's non-blocking nature by meeting the Event Loop—a silent orchestrator that keeps asynchronous operations in perfect harmony.",
       "images": [
-        "./assets/images/blog/blog4.1.webp",
-        "./assets/images/blog/blog4.2.webp",
-        "./assets/images/blog/blog4.3.webp"
+        "../assets/images/blog/blog4.1.webp",
+        "../assets/images/blog/blog4.2.webp",
+        "../assets/images/blog/blog4.3.webp"
       ],
       "content": {
         "intro": "Aryan's exploration of asynchronous JavaScript had taken him through callbacks and promises, but one question remained: how does JavaScript manage it all behind the scenes? When he returns to the digital realm, he meets the Event Loop itself—a conductor orchestrating a complex yet beautiful performance of tasks and timing.",
