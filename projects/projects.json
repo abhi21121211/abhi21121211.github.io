@@ -1,5 +1,15 @@
 [
   {
+    "name": "RoomLoop",
+    "desc": "RoomLoop is a modern AI-powered virtual events and meetups platform featuring real-time chat, live rooms, and an intelligent AI assistant named Ted. It offers seamless user presence, and context-aware AI assistance.",
+    "image": "roomloop-dashboard",
+    "category": "fullstack",
+    "links": {
+      "view": "https://roomloop-client.vercel.app/",
+      "code": "https://github.com/abhi21121211/roomloop-client"
+    }
+  },
+  {
     "name": "Electon",
     "desc": "Electone.com, your ultimate e-commerce website for purchasing top-quality electronic gadgets at affordable prices.",
     "image": "electon-home",
