@@ -1,0 +1,23 @@
+{
+  "name": "abhi21121211.github.io",
+  "version": "1.0.0",
+  "description": "Welcome to my portfolio! Here, I proudly present my skills, accomplishments, and creative journey in the field of development. This collection is a reflection of my unwavering passion for the craft and my continuous pursuit of excellence.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhi21121211/abhi21121211.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhi21121211/abhi21121211.github.io/issues"
+  },
+  "homepage": "https://github.com/abhi21121211/abhi21121211.github.io#readme",
+  "dependencies": {
+    "@abhi21121211/project-pa-runtime": "^1.1.22"
+  }
+}

@@ -1,8 +1,18 @@
 [
   {
+    "name": "Project PA CLI",
+    "desc": "The official Command Line Interface for Project PA (Project Personal Assistant). This tool empowers you to generate AI-powered guided tours for your web projects, preview them locally, and deploy them to the cloud.",
+    "image": "project-pa-cli",
+    "category": "fullstack",
+    "links": {
+      "view": "https://www.npmjs.com/package/@abhi21121211/project-pa-cli",
+      "code": "https://github.com/abhi21121211/project-pa"
+    }
+  },
+  {
     "name": "RoomLoop",
     "desc": "RoomLoop is a modern AI-powered virtual events and meetups platform featuring real-time chat, live rooms, and an intelligent AI assistant named Ted. It offers seamless user presence, and context-aware AI assistance.",
-    "image": "roomloop-dashboard",
+    "image": "roomloop-chat",
     "category": "fullstack",
     "links": {
       "view": "https://roomloop-client.vercel.app/",
@@ -39,7 +49,6 @@
       "code": "https://github.com/Mzsalmani02/bluefly_clone"
     }
   },
-
   {
     "name": "Foodrocket",
     "desc": "It's Responsive Food and Restaurant Website using Bootstrap 5.",

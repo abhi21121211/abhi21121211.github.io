@@ -1,0 +1,104 @@
+{
+    "meta": {
+        "project": "Abhishek's Portfolio",
+        "author": "Abhishek Dukare",
+        "description": "A comprehensive tour of my full stack developer portfolio",
+        "techStack": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Particles.js"
+        ],
+        "entryUrl": "/"
+    },
+    "steps": [
+        {
+            "id": "intro",
+            "type": "popup",
+            "page": "/",
+            "target": "body",
+            "content": "Hello! I am your personal assistant for this portfolio. I'm here to guide you through Abhishek Dukare's work as a Full Stack Developer. Let's get started!",
+            "duration": 10000
+        },
+        {
+            "id": "nav-menu",
+            "type": "highlight",
+            "page": "/",
+            "target": "#nav-menu",
+            "content": "At the top, you'll find the navigation bar. It's your command center to quickly jump to any section, whether you want to see skills, projects, or get in touch.",
+            "duration": 10000
+        },
+        {
+            "id": "hero-section",
+            "type": "highlight",
+            "page": "/",
+            "target": "#home .content",
+            "content": "This is the hero section, the first thing visitors see. It features a brief introduction and direct links to Abhishek's LinkedIn and GitHub profiles for easy connection.",
+            "duration": 12000
+        },
+        {
+            "id": "about-section",
+            "type": "highlight",
+            "page": "/",
+            "target": "#about",
+            "content": "Allow me to introduce the developer. In the 'About Me' section, you can learn about Abhishek's passion for AI, Machine Learning, and his journey in building modern web applications.",
+            "duration": 12000
+        },
+        {
+            "id": "resume-btn",
+            "type": "highlight",
+            "page": "/",
+            "target": "#resume-button-2",
+            "content": "If you're interested in the details, click this button to download the full resume. It contains a comprehensive history of his professional experience and education.",
+            "duration": 10000
+        },
+        {
+            "id": "skills-section",
+            "type": "highlight",
+            "page": "/",
+            "target": "#skills",
+            "content": "Abhishek has a wide range of technical skills. This section highlights his proficiency in both frontend and backend technologies, demonstrating his versatility as a developer.",
+            "duration": 12000
+        },
+        {
+            "id": "education-section",
+            "type": "highlight",
+            "page": "/",
+            "target": "#education",
+            "content": "Education is the foundation of his expertise. Here you can see his academic background, including an MBA in IT and a Bachelor's in Computer Applications.",
+            "duration": 10000
+        },
+        {
+            "id": "projects-section",
+            "type": "highlight",
+            "page": "/",
+            "target": "#projects",
+            "content": "Now, let's look at the work. This section showcases various projects that demonstrate his ability to solve real-world problems using code.",
+            "duration": 10000
+        },
+        {
+            "id": "experience-section",
+            "type": "highlight",
+            "page": "/",
+            "target": "#experience",
+            "content": "Experience matters. Here is a timeline of his professional journey, including his roles as a Software Engineer and Assessment Assistant.",
+            "duration": 10000
+        },
+        {
+            "id": "github-section",
+            "type": "highlight",
+            "page": "/",
+            "target": "#githubinfo",
+            "content": "Code speaks louder than words. This section displays live stats from his GitHub profile, showing his active contributions and the languages he uses most.",
+            "duration": 12000
+        },
+        {
+            "id": "contact-section",
+            "type": "highlight",
+            "page": "/",
+            "target": "#contact",
+            "content": "Thank you for taking this tour! If you'd like to collaborate or have any questions, please use this form to send a message directly. Have a great day!",
+            "duration": 12000
+        }
+    ]
+}
