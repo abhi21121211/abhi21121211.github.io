@@ -53,7 +53,7 @@ function Tile({ p, hero }: { p: Project; hero: boolean }) {
     <li className={cls}>
       <div className="ptile-text">
         <p className="ptile-tag">
-          {p.kind === 'client' && <span className="ptile-badge">Client work</span>}
+          {p.kind === 'client' && <span className="ptile-badge">Own product</span>}
           {p.tagline.replace(/^Client work · /, '')}
         </p>
         <h3 className="ptile-name">{p.name}</h3>
