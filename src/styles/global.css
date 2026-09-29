@@ -256,6 +256,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .xs-bar i { display: block; height: 100%; background: var(--ink); transform-origin: left; transform: scaleX(0); }
 .xs-hint { color: var(--ink-2); }
 .xs-pin { gap: 0; }
+.xs-lead { max-width: 42ch; margin-top: 14px; }
 /* company bar */
 .co-bar { display: flex; gap: 10px; margin-bottom: 26px; }
 .co-seg { flex-basis: 0; min-width: 0; display: grid; gap: 4px; }
@@ -265,7 +266,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .co-name { font-size: 15px; font-weight: 600; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color 0.4s; }
 .co-name b { font-variant-numeric: tabular-nums; margin-right: 4px; }
 .co-seg.is-active .co-name { color: var(--ink); }
-.co-years { font-size: 12px; color: var(--ink-2); white-space: nowrap; }
+.co-years { font-size: 12px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 /* company cover */
 .co-cover { flex-basis: min(1040px, 84vw); grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); background: #fff; }
 .co-panel { position: relative; overflow: hidden; background: #000; color: #f5f5f7; display: flex; flex-direction: column; padding: 36px 40px; }

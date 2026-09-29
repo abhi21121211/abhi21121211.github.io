@@ -10,6 +10,8 @@ type Company = {
   id: string
   name: string
   years: string
+  /** Career stage — shows the direction of each move. */
+  stage: string
   role: string
   period: string
   place: string
@@ -27,11 +29,12 @@ const [rl, cm, qt] = experience.roles
 const side = experience.side
 const [ingest, platform, pocs] = rl.blocks
 
-const companies: Company[] = [
+const newestFirst: Company[] = [
   {
     id: 'relevance-lab',
     name: rl.company,
     years: '2026 – Now',
+    stage: 'GenAI & agents',
     role: rl.title,
     period: rl.period,
     place: rl.location,
@@ -46,6 +49,7 @@ const companies: Company[] = [
     id: 'carmatec',
     name: cm.company,
     years: '2025 – 26',
+    stage: 'AI + full stack',
     role: cm.title,
     period: cm.period,
     place: cm.location,
@@ -58,6 +62,7 @@ const companies: Company[] = [
     id: 'quicktouch',
     name: qt.company,
     years: '2024 – 25',
+    stage: 'Frontend + AI',
     role: qt.title,
     period: qt.period,
     place: qt.location,
@@ -70,6 +75,7 @@ const companies: Company[] = [
     id: 'masai',
     name: side.company,
     years: '2023 – 24',
+    stage: 'Part-time start',
     role: side.title,
     period: side.period,
     place: 'Remote',
@@ -78,15 +84,18 @@ const companies: Company[] = [
   },
 ]
 
+// Chronological, so the slide reads as a progression and ends on the current role.
+const companies = [...newestFirst].reverse()
+
 // Flatten into slides, remembering which company each belongs to.
 type Slide = { company: number; project?: number }
 const slides: Slide[] = companies.flatMap((c, ci) => [{ company: ci }, ...(c.projects ?? []).map((_, pi) => ({ company: ci, project: pi }))])
 const pad = (n: number) => String(n).padStart(2, '0')
 
 /**
- * Experience. A pinned company bar ("4 companies") stays visible while the
- * slides move sideways: a cover per company (its website + role), then that
- * company's project slides. Phones / reduced motion: grouped vertical stack.
+ * Experience, framed as one progression: oldest → newest, each step taking on
+ * more AI. A pinned bar shows every step (with its stage) while the slides
+ * move sideways: a cover per company, then Relevance Lab's project slides. Phones / reduced motion: grouped vertical stack.
  */
 export default function Work() {
   const root = useRef<HTMLElement>(null)
@@ -143,24 +152,26 @@ export default function Work() {
       <Reveal className="wrap">
         <p className="eyebrow">{light.work.eyebrow}</p>
         <h2 id="work-h" className="h-section">
-          <span className="tone-2">{companies.length} companies.</span> Where I’ve shipped.
+          <span className="tone-2">Three years.</span> One direction.
         </h2>
+        <p className="lead xs-lead">
+          Every move took on more AI — from AI-assisted frontends, to LLM features in production apps, to leading a 13-node LangGraph agent toward production.
+        </p>
       </Reveal>
 
       <div className="xs-pin">
         {/* Company bar: always shows how many companies, and which one you're on. */}
-        <ol className="wrap co-bar" aria-label={`${companies.length} companies`}>
+        <ol className="wrap co-bar" aria-label="Career path">
           {companies.map((c, ci) => {
             const n = slides.filter((s) => s.company === ci).length
             return (
-              <li key={c.id} className={`co-seg${cur.company === ci ? ' is-active' : ''}${cur.company > ci ? ' is-done' : ''}`} style={{ flexGrow: n }}>
+              <li key={c.id} className={`co-seg${cur.company === ci ? ' is-active' : ''}${cur.company > ci ? ' is-done' : ''}`} style={{ flexGrow: n + 1 }}>
                 <span className="co-line" aria-hidden="true" />
                 <span className="co-name">
                   <b>{pad(ci + 1)}</b> {c.name}
                 </span>
                 <span className="co-years">
-                  {c.years}
-                  {c.projects && ` · ${c.projects.length} projects`}
+                  {c.years} · {c.stage}
                 </span>
               </li>
             )
@@ -170,7 +181,7 @@ export default function Work() {
         <ol className="xs-track">
           {companies.map((c, ci) => (
             <Fragment key={c.id}>
-              <li className="xs-card co-cover" aria-label={`Company ${ci + 1} of ${companies.length}: ${c.name}`}>
+              <li className="xs-card co-cover" aria-label={`Step ${ci + 1}: ${c.name}, ${c.stage}`}>
                 <div className="co-panel" aria-hidden="true">
                   <span className="co-num">{pad(ci + 1)}</span>
                   <span className="co-years-big">{c.years}</span>
@@ -181,7 +192,7 @@ export default function Work() {
                 </div>
                 <div className="co-body">
                   <p className="co-count xs-anim">
-                    Company {pad(ci + 1)} / {pad(companies.length)}
+                    Step {pad(ci + 1)} · {c.stage}
                   </p>
                   <h3 className="co-title xs-anim">{c.name}</h3>
                   <p className="co-role xs-anim">{c.role}</p>
