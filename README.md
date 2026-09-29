@@ -1,54 +1,48 @@
-# Portfolio
+# Abhishek Dukare — Portfolio v4 · "The Agent Graph"
 
-Welcome to my portfolio! Here, I proudly present my skills, accomplishments, and creative journey in the field of development. This collection is a reflection of my unwavering passion for the craft and my continuous pursuit of excellence.
+The site is one continuous 3D agent graph. Scrolling flies the camera from `START` through each node (About → Experience → Projects → Skills) to `END` (Contact).
 
-<img style="width: 200px" src="assets/images/logo-2.png" />
-<!-- <img src="assets/images/portfolio-3-logo-2.jpg" /> -->
-## Introduction
+**Stack:** Vite · React · TypeScript · Three.js via React Three Fiber (+ postprocessing bloom) · GSAP ScrollTrigger · Lenis · Framer Motion
 
-Greetings! I am thrilled to share my development journey with you through this portfolio. I have dedicated myself to honing my skills, embracing challenges, and delivering innovative solutions. This portfolio serves as a testament to my commitment to excellence and my passion for continuous learning.
+## Edit content
 
-## Skills
+All copy, links and media live in **`src/data/content.ts`**. Search it for `TODO(abhishek)` to find items waiting on confirmation.
 
-- Web Development (HTML, CSS, JavaScript, React, etc.)
-- Backend Development (Node.js, Express, etc.)
-- Database Management ( MongoDB,Mongoose )
-- Version Control (Git, GitHub)
-- Problem Solving and Algorithmic Thinking
+- Resume PDF → `public/resume/Abhishek_Dukare_AI_Engineer_Resume.pdf` (path set in `site.resume`)
+- Photos → originals in `design/photos/`, web versions in `public/img/photos/` (`cwebp -q 80 -resize 1100 0 in.png -o out.webp`, plus a `-sm` 640px copy). Which photo goes where is set in `photos` in `content.ts`.
+- Headings: wrap words in `*asterisks*` to set them in the serif italic accent.
+- Videos → put files in `public/video/` and set `media.heroLoop` / `media.dataCore` (or a project's `media`) in `content.ts`. With no video the site uses the pure Three.js scene.
 
-## Projects
+## Develop
 
-### Project 1: Bluefly Clone
-Our Bluefly.com website clone is a meticulously crafted online fashion retail platform inspired by the popular original. It offers a wide selection of designer clothing, accessories, and home decor products at competitive prices. With a user-friendly interface, customers can easily navigate through various categories, explore top designer brands, and discover discounted luxury fashion items.
+```bash
+npm install
+npm run dev       # http://localhost:5173
+npm run build     # type-check + production build into dist/
+npm run preview   # serve dist/
+```
 
-### Project 2: Shopclues Clone
-Welcome to ShopClues Clone, a meticulously crafted e-commerce platform that brings you the essence of India's leading online shopping website, ShopClues.com. With our clone, we strive to provide you with a seamless shopping experience that rivals the original.
+## How it fits together
 
-### Project 3: Electon
-Electone.Com, Your Ultimate E-Commerce Website For Purchasing Top-Quality Electronic Gadgets At Affordable Prices.
+| Path | What |
+|---|---|
+| `src/three/` | The lazy-loaded 3D scene: graph layout, GLSL for nodes/edges/pulses, camera rig |
+| `src/lib/stationTracker.ts` | Maps scroll position → continuous "station" value the camera follows |
+| `src/sections/` | One component per section; readable without 3D |
+| `src/components/` | Loader, cursor, graph nav, command palette (`/` or ⌘K), project cards, skills constellation |
 
-## Contact
+- **Mobile (<768px):** ~150 nodes, no bloom, simpler camera.
+- **`prefers-reduced-motion`:** no 3D, no smooth scroll; a static SVG graph and simple fades.
+- **No WebGL:** same static SVG fallback.
 
-I would love to connect with you and discuss collaboration opportunities or answer any questions you might have. Feel free to reach out to me through the following channels:
+## Deploy
 
-- Email: abhishekdukare689@gmail.com
-- LinkedIn: (https://www.linkedin.com/in/abhishek-dukare-937156257)
-- Portfolio Website: (https://abhi21121211.github.io)
+`.github/workflows/deploy.yml` builds and publishes `dist/` to GitHub Pages on every push to `main`.
+One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+Custom domain later: add `public/CNAME` containing the domain.
 
-<img src="assets/images/portfolio-screenshot/portfolio-3-home.png" />
+The previous site is kept in `legacy/` until v4 is live.
 
-<img src="assets/images/portfolio-screenshot/portfolio-3-about.png" />
+---
 
-<img src="assets/images/portfolio-screenshot/portfolio-3-skills.png" />
-
-<img src="assets/images/portfolio-screenshot/portfolio-3-project.png" />
-
-<img src="assets/images/portfolio-screenshot/portfolio-3-github.png" />
-
-<img src="assets/images/portfolio-screenshot/portfolio-3-contact.png" />
-
-
-Thank you for taking the time to explore my portfolio. I look forward to the possibility of working together and contributing to exciting projects.
-
-#abhishekdukareportfolio
-#portfolio #masai #abhishek #dukare #fullstackdevlper #webdevlper 
+Designed & built by [Webforge](https://webforge.in).
