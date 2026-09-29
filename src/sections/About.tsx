@@ -1,51 +1,40 @@
-import { about, photos } from '../data/content'
-import Words from '../components/anim/Words'
-import ScrubText from '../components/anim/ScrubText'
-import ImageReveal from '../components/anim/ImageReveal'
-import FadeUp from '../components/anim/FadeUp'
-import Rule from '../components/anim/Rule'
-import Eyebrow from '../components/Eyebrow'
-import Counter from '../components/Counter'
-import Rich from '../components/Rich'
+import { light } from '../data/content'
+import Highlight from '../components/Highlight'
+import Reveal from '../components/Reveal'
+import Count from '../components/Count'
+import Days from './Days'
 
 export default function About() {
   return (
-    <section id="about" className="section about" data-station="1" aria-labelledby="about-h">
-      <Eyebrow index="01" label="About" node="node_01" />
-      <div className="about-grid">
-        <ImageReveal photo={photos.about} className="about-photo" caption={<span className="eyebrow">At work — Bengaluru</span>} />
-        <div className="about-copy">
-          <Words id="about-h" text={about.heading} className="display" />
-          <ScrubText parts={[...about.body[0], { t: ' ' }, ...about.body[1]]} className="about-statement" />
-          <p className="about-more">
-            <Rich parts={about.body[2]} />
-          </p>
+    <>
+      <section id="about" className="band band-white" aria-label="About">
+        <div className="wrap">
+          <Highlight parts={light.statement} className="statement" />
         </div>
-      </div>
+      </section>
 
-      <Rule />
-      <FadeUp as="ul" className="stats">
-        {about.stats.map((s, i) => (
-          <li className="stat" key={i}>
-            <span className="stat-index eyebrow">0{i + 1}</span>
-            <span className="stat-value">
-              {s.kind === 'count' ? (
-                <Counter to={s.to} decimals={s.decimals} suffix={s.suffix} />
-              ) : (
-                <>
-                  <span className="stat-from">{s.from}</span>
-                  <span className="stat-arrow" aria-hidden="true">
-                    →
-                  </span>
-                  <span className="sr-only"> to </span>
-                  <span className="serif">{s.to}</span>
-                </>
-              )}
-            </span>
-            <span className="stat-caption">{s.caption}</span>
-          </li>
-        ))}
-      </FadeUp>
-    </section>
+      <Days />
+
+      <section className="band band-grey" aria-labelledby="numbers-h">
+        <div className="wrap">
+          <Reveal>
+            <p className="eyebrow">By the numbers</p>
+            <h2 id="numbers-h" className="h-section">
+              <span className="tone-2">Measured in</span> days saved.
+            </h2>
+          </Reveal>
+          <Reveal as="ul" className="bento" stagger={0.08} y={50}>
+            {light.numbers.map((n) => (
+              <li key={n.value} className={`tile tile-${n.size} tile-${n.tone}`}>
+                <span className="tile-value">
+                  <Count value={n.value} />
+                </span>
+                <span className="tile-label">{n.label}</span>
+              </li>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+    </>
   )
 }

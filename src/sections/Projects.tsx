@@ -1,137 +1,156 @@
 import { useRef } from 'react'
-import { projects, type Project } from '../data/content'
+import { light, projects, type Project } from '../data/content'
 import { gsap } from '../lib/lenis'
 import { useGsap } from '../hooks/useGsap'
-import { isMobileViewport } from '../lib/env'
-import Words from '../components/anim/Words'
-import FadeUp from '../components/anim/FadeUp'
-import Roll from '../components/anim/Roll'
-import Eyebrow from '../components/Eyebrow'
-import LoopVideo from '../components/LoopVideo'
+import Reveal from '../components/Reveal'
 
+/**
+ * Bento grid. Tile variants:
+ * - hero     (first project): wide, text + screenshot
+ * - research: wide black tile with a 2×2 grid of headline results
+ * - app mock: built-in UI illustration instead of a screenshot
+ * - default / client: text + screenshot
+ */
 export default function Projects() {
-  const deck = useRef<HTMLDivElement>(null)
-
-  // Stacking deck: each card pins; the one beneath recedes as the next slides over it.
-  useGsap(deck, () => {
-    const cards = gsap.utils.toArray<HTMLElement>('.pj-card')
-    cards.forEach((card, i) => {
-      const next = cards[i + 1]
-      const inner = card.querySelector('.pj-inner')
-      if (next && !isMobileViewport())
-        gsap.to(inner, {
-          scale: 0.9,
-          opacity: 0.35,
-          filter: 'blur(2px)',
-          ease: 'none',
-          scrollTrigger: { trigger: next, start: 'top bottom', end: 'top 18%', scrub: true },
-        })
-      const media = card.querySelector('.pj-media img')
-      if (media) gsap.from(media, { scale: 1.3, ease: 'none', scrollTrigger: { trigger: card, start: 'top bottom', end: 'top 20%', scrub: true } })
-    })
-  })
-
   return (
-    <section id="projects" className="section projects" data-station="5" aria-labelledby="projects-h">
-      <Eyebrow index="03" label="Projects" node="node_05" />
-      <div className="pj-head">
-        <Words id="projects-h" text={projects.heading} className="display" />
-        <p className="pj-count eyebrow">
-          {String(projects.featured.length).padStart(2, '0')} featured
-        </p>
-      </div>
+    <section id="projects" className="band band-white" aria-labelledby="projects-h">
+      <div className="wrap">
+        <Reveal>
+          <p className="eyebrow">{light.projects.eyebrow}</p>
+          <h2 id="projects-h" className="h-section">
+            <span className="tone-2">Things</span> I’ve built.
+          </h2>
+        </Reveal>
 
-      <div className="pj-deck" ref={deck}>
-        {projects.featured.map((p, i) => (
-          <ProjectSpread key={p.name} project={p} index={i} total={projects.featured.length} />
-        ))}
-      </div>
-
-      <FadeUp className="archive">
-        <h3 className="eyebrow">Archive — early learning projects</h3>
-        <ul>
-          {projects.archive.map((a) => (
-            <li key={a.name}>
-              {a.href ? (
-                <a className="link" href={a.href} target="_blank" rel="noopener noreferrer">
-                  {a.name}
-                  <span className="sr-only"> (opens in new tab)</span>
-                </a>
-              ) : (
-                a.name
-              )}
-            </li>
+        <Reveal as="ul" className="pgrid" stagger={0.1} y={60}>
+          {projects.featured.map((p, i) => (
+            <Tile key={p.name} p={p} hero={i === 0} />
           ))}
-        </ul>
-      </FadeUp>
+        </Reveal>
+
+        <Reveal className="archive">
+          <span>Earlier learning projects:</span>{' '}
+          {projects.archive.map((a, i) => (
+            <span key={a.name}>
+              {i > 0 && ', '}
+              <a href={a.href} target="_blank" rel="noopener noreferrer">
+                {a.name}
+              </a>
+            </span>
+          ))}
+          .
+        </Reveal>
+      </div>
     </section>
   )
 }
 
-function ProjectSpread({ project: p, index, total }: { project: Project; index: number; total: number }) {
-  const primary = p.links[0]
-  const media = p.media ? (
-    <LoopVideo media={p.media} />
-  ) : p.image ? (
-    <img src={p.image} alt={p.imageAlt ?? ''} loading="lazy" decoding="async" />
-  ) : (
-    <PlaceholderArt />
-  )
+function Tile({ p, hero }: { p: Project; hero: boolean }) {
+  const dark = p.kind === 'research'
+  const cls = ['ptile', hero && 'ptile-hero', dark && 'ptile-research ptile-dark', p.kind === 'client' && 'ptile-client', p.mock && 'ptile-mock'].filter(Boolean).join(' ')
+
   return (
-    <article className="pj-card" style={{ '--i': index } as React.CSSProperties} aria-labelledby={`pj-${index}`}>
-      <div className="pj-inner">
-        <header className="pj-top">
-          <span className="eyebrow">
-            {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
-          </span>
-          <span className="eyebrow">{p.tagline}</span>
-        </header>
-
-        <div className="pj-body">
-          {primary ? (
-            <a className="pj-media" href={primary.href} target="_blank" rel="noopener noreferrer" data-cursor-label="View ↗" tabIndex={-1} aria-hidden="true">
-              {media}
-            </a>
-          ) : (
-            <div className="pj-media">{media}</div>
-          )}
-
-          <div className="pj-text">
-            <h3 id={`pj-${index}`} className="pj-name">
-              {p.name}
-            </h3>
-            <p className="pj-desc">{p.desc}</p>
-            {p.highlight && (
-              <p className="pj-highlight">
-                <span className="serif">{p.highlight.split(' ')[0]}</span> {p.highlight.split(' ').slice(1).join(' ')}
-              </p>
-            )}
-            <p className="pj-tech eyebrow">{p.tech.join('  ·  ')}</p>
-            <div className="pj-links">
-              {p.links.map((l, li) => (
-                <a key={l.href} className={li === 0 ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'} href={l.href} target="_blank" rel="noopener noreferrer">
-                  <Roll>{l.label}</Roll>
-                  <span className="btn-icon" aria-hidden="true">
-                    ↗
-                  </span>
-                  <span className="sr-only"> — {p.name} (opens in new tab)</span>
-                </a>
-              ))}
-              {p.pending && <span className="eyebrow">{p.pending}</span>}
-            </div>
+    <li className={cls}>
+      <div className="ptile-text">
+        <p className="ptile-tag">
+          {p.kind === 'client' && <span className="ptile-badge">Client work</span>}
+          {p.tagline.replace(/^Client work · /, '')}
+        </p>
+        <h3 className="ptile-name">{p.name}</h3>
+        {p.highlight ? (
+          <p className="ptile-stat">
+            <span className="accent">{p.highlight.split(' ')[0]}</span> {p.highlight.split(' ').slice(1).join(' ')}
+          </p>
+        ) : (
+          <p className="ptile-desc">{p.desc}</p>
+        )}
+        {p.extra && <p className="ptile-extra">{p.extra}</p>}
+        {!hero && (
+          <p className="ptile-tech">
+            <span>Built with</span> {p.tech.join(' · ')}
+          </p>
+        )}
+        {p.links.length > 0 && (
+          <div className="ptile-links">
+            {p.links.map((l) => (
+              <a key={l.href} className={`link-chevron${dark ? ' link-light' : ''}`} href={l.href} target="_blank" rel="noopener noreferrer">
+                {l.label}
+                <span className="sr-only"> — {p.name} (opens in new tab)</span>
+              </a>
+            ))}
           </div>
-        </div>
+        )}
       </div>
-    </article>
+
+      {p.stats ? (
+        <ul className="rstats">
+          {p.stats.map((s) => (
+            <li key={s.v}>
+              <span className="rstat-v">{s.v}</span>
+              <span className="rstat-l">{s.l}</span>
+            </li>
+          ))}
+        </ul>
+      ) : p.mock === 'voice-transaction' ? (
+        <VoiceMock />
+      ) : p.image ? (
+        <div className="ptile-media">
+          <img src={p.image} alt={p.imageAlt ?? ''} loading="lazy" decoding="async" />
+        </div>
+      ) : null}
+    </li>
   )
 }
 
-function PlaceholderArt() {
+/**
+ * Nivesh AI's core idea in one glance: a spoken sentence becomes a filed
+ * transaction. Plays once when it scrolls into view. Illustrative UI.
+ */
+function VoiceMock() {
+  const ref = useRef<HTMLDivElement>(null)
+  useGsap(ref, () => {
+    gsap
+      .timeline({ scrollTrigger: { trigger: ref.current, start: 'top 80%', once: true } })
+      .from('.vm-bubble', { y: 20, opacity: 0, scale: 0.9, transformOrigin: '100% 100%', duration: 0.6, ease: 'back.out(1.6)' })
+      .from('.vm-wave i', { scaleY: 0.2, duration: 0.3, stagger: { each: 0.04, repeat: 3, yoyo: true } }, 0.1)
+      .from('.vm-typing', { opacity: 0, duration: 0.3 }, 0.9)
+      .to('.vm-typing', { opacity: 0, duration: 0.2 }, 1.7)
+      .from('.vm-card', { y: 30, opacity: 0, duration: 0.7, ease: 'power3.out' }, 1.8)
+      .from('.vm-card-row', { x: -12, opacity: 0, duration: 0.4, stagger: 0.08 }, 2.1)
+      .from('.vm-check', { scale: 0, duration: 0.4, ease: 'back.out(2)' }, 2.3)
+  })
   return (
-    <div className="pj-placeholder" aria-hidden="true">
-      <p className="ph-err">Error: ECONNREFUSED 127.0.0.1:5432</p>
-      <p className="ph-arrow">↓</p>
-      <p className="ph-ok">Can’t reach the database on port 5432. Is it running?</p>
+    <div ref={ref} className="vmock" aria-hidden="true">
+      <div className="vm-bubble">
+        <span className="vm-wave">
+          {[0, 1, 2, 3, 4].map((k) => (
+            <i key={k} />
+          ))}
+        </span>
+        “spent 450 on groceries”
+      </div>
+      <div className="vm-typing">
+        <i />
+        <i />
+        <i />
+      </div>
+      <div className="vm-card">
+        <p className="vm-card-head">
+          <span className="vm-check">✓</span> Transaction added
+        </p>
+        <p className="vm-card-row">
+          <span>Category</span>
+          <b>Groceries</b>
+        </p>
+        <p className="vm-card-row">
+          <span>Amount</span>
+          <b>₹450</b>
+        </p>
+        <p className="vm-card-row">
+          <span>Type</span>
+          <b>Expense</b>
+        </p>
+      </div>
     </div>
   )
 }

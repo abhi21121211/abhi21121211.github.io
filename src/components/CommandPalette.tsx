@@ -18,11 +18,11 @@ export default function CommandPalette({ open, setOpen }: { open: boolean; setOp
     const jump = (id: string) => () => scrollToTarget(id)
     const open = (href: string) => () => window.open(href, '_blank', 'noopener')
     return [
-      { id: 'about', label: 'About', hint: 'node_01', run: jump('about') },
-      { id: 'work', label: 'Work — experience', hint: 'node_02', run: jump('experience') },
-      { id: 'projects', label: 'Projects', hint: 'node_05', run: jump('projects') },
-      { id: 'skills', label: 'Skills', hint: 'node_06', run: jump('skills') },
-      { id: 'contact', label: 'Contact', hint: 'end', run: jump('contact') },
+      { id: 'about', label: 'About', hint: '', run: jump('about') },
+      { id: 'work', label: 'Experience', hint: '', run: jump('work') },
+      { id: 'projects', label: 'Projects', hint: '', run: jump('projects') },
+      { id: 'skills', label: 'Skills', hint: '', run: jump('skills') },
+      { id: 'contact', label: 'Contact', hint: '', run: jump('contact') },
       { id: 'resume', label: 'Download resume', hint: 'pdf', run: open(site.resume) },
       { id: 'email', label: 'Copy email address', hint: site.email, run: () => copy(site.email) },
       { id: 'github', label: 'GitHub', hint: '↗', run: open(site.github) },
