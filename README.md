@@ -1,8 +1,13 @@
-# Abhishek Dukare — Portfolio v4 · "The Agent Graph"
+# Abhishek Dukare — Portfolio v4 · Light edition (branch `v4-light`)
 
-The site is one continuous 3D agent graph. Scrolling flies the camera from `START` through each node (About → Experience → Projects → Skills) to `END` (Contact).
+Apple-style: light surfaces, one idea per screen, motion driven by scroll.
+The dark 3D "Agent Graph" edition lives on branch `v4-agent-graph`.
 
-**Stack:** Vite · React · TypeScript · Three.js via React Three Fiber (+ postprocessing bloom) · GSAP ScrollTrigger · Lenis · Framer Motion
+**Stack:** Vite · React · TypeScript · GSAP ScrollTrigger · Lenis · Framer Motion (no 3D engine)
+
+**Signature moments**
+- Black "Pro" hero: an 81-frame sequence (from `design/video/hero-turn.mov`, via `design/video/export_dark.py`) scrubs as you scroll — Abhishek turns to face you while the name gives way to the headline.
+- Scroll-lit statement, bento numbers, sticky IngestIQ story (13-node graph lights up per step), a film that grows edge-to-edge, "Get to know"-style experience cards with detail sheets, segmented-control toolkit.
 
 ## Edit content
 
@@ -26,14 +31,11 @@ npm run preview   # serve dist/
 
 | Path | What |
 |---|---|
-| `src/three/` | The lazy-loaded 3D scene: graph layout, GLSL for nodes/edges/pulses, camera rig |
-| `src/lib/stationTracker.ts` | Maps scroll position → continuous "station" value the camera follows |
 | `src/sections/` | One component per section; readable without 3D |
-| `src/components/` | Loader, cursor, graph nav, command palette (`/` or ⌘K), project cards, skills constellation |
+| `src/components/` | Nav, Reveal / Highlight / Count motion primitives, command palette (`/` or ⌘K) |
 
-- **Mobile (<768px):** ~150 nodes, no bloom, simpler camera.
-- **`prefers-reduced-motion`:** no 3D, no smooth scroll; a static SVG graph and simple fades.
-- **No WebGL:** same static SVG fallback.
+- **Mobile:** portrait hero frames (`public/img/hero-dark/m`), stacked layouts.
+- **`prefers-reduced-motion`:** no pinning or smooth scroll; the hero stacks name → portrait → headline.
 
 ## Deploy
 
@@ -41,7 +43,7 @@ npm run preview   # serve dist/
 One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 Custom domain later: add `public/CNAME` containing the domain.
 
-The previous site is kept in `legacy/` until v4 is live.
+The previous site remains on `main`.
 
 ---
 
