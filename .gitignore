@@ -1,4 +1,6 @@
 node_modules
+dist
 .DS_Store
-assets/.DS_Store
-assets/images/.DS_Store
+**/.DS_Store
+*.local
+*.tsbuildinfo

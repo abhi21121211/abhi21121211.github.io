@@ -1,23 +1,34 @@
 {
-  "name": "abhi21121211.github.io",
-  "version": "1.0.0",
-  "description": "Welcome to my portfolio! Here, I proudly present my skills, accomplishments, and creative journey in the field of development. This collection is a reflection of my unwavering passion for the craft and my continuous pursuit of excellence.",
-  "main": "index.js",
+  "name": "abhishek-dukare-portfolio",
+  "private": true,
+  "version": "4.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abhi21121211/abhi21121211.github.io.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/abhi21121211/abhi21121211.github.io/issues"
-  },
-  "homepage": "https://github.com/abhi21121211/abhi21121211.github.io#readme",
   "dependencies": {
-    "@abhi21121211/project-pa-runtime": "^1.1.22"
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
+    "@react-three/fiber": "^9.8.1",
+    "@react-three/postprocessing": "^3.1.3",
+    "framer-motion": "^13.4.5",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.26",
+    "postprocessing": "^6.39.5",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1"
   }
 }
