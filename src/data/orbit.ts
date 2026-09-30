@@ -15,20 +15,6 @@ export type Icon = { path: string; title: string }
 export type OrbitTile = { label: string; full: string; icon?: Icon }
 export type OrbitGroup = { id: string; name: string; color: string; tiles: OrbitTile[] }
 
-/**
- * The gesture video in the centre. `sweepAt` is when the hand sweep starts
- * (seconds, per loop) and `sweepDir` its screen direction: 1 = to the right.
- * Source: design/video/gesture.mov, processed with
- * `WIDE=1 export_orbit_video.py` (person on pure black, full 16:9 so the hand isn't cropped).
- */
-export const orbitVideo = {
-  mp4: '/video/orbit.mp4',
-  poster: '/video/orbit-poster.jpg',
-  aspect: 16 / 9,
-  sweepAt: 4.6, // hand starts crossing his body
-  sweepDir: -1 as 1 | -1, // …and sweeps to the left of the screen
-}
-
 // Short tile label + optional logo, in the same order as the skill list.
 type Spec = [label: string, icon?: Icon]
 const specs: Record<string, Spec[]> = {

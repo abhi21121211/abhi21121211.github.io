@@ -6,7 +6,7 @@ import CommandPalette from './components/CommandPalette'
 import Hero from './sections/Hero'
 import About from './sections/About'
 import IngestIQ from './sections/IngestIQ'
-import Orbit from './sections/Orbit'
+import RobotSkills from './sections/RobotSkills'
 import Work from './sections/Work'
 import Projects from './sections/Projects'
 import Webforge from './sections/Webforge'
@@ -28,7 +28,7 @@ export default function App() {
         <Hero />
         <About />
         <IngestIQ />
-        <Orbit />
+        <RobotSkills />
         <Work />
         <Projects />
         <Webforge />
