@@ -19,6 +19,7 @@ export default function CommandPalette({ open, setOpen }: { open: boolean; setOp
     const open = (href: string) => () => window.open(href, '_blank', 'noopener')
     return [
       { id: 'about', label: 'About', hint: '', run: jump('about') },
+      { id: 'research', label: 'Research', hint: '', run: jump('research') },
       { id: 'work', label: 'Experience', hint: '', run: jump('work') },
       { id: 'projects', label: 'Projects', hint: '', run: jump('projects') },
       { id: 'skills', label: 'Skills', hint: '', run: jump('skills') },
