@@ -11,6 +11,11 @@ import Reveal from '../components/Reveal'
  * - app mock: built-in UI illustration instead of a screenshot
  * - default / client: text + screenshot
  */
+// Half-width tiles pair up; if one is left over, it spans the full row instead of leaving a gap.
+const isHalf = (p: Project, i: number) => i > 0 && p.kind !== 'research'
+const halfCount = projects.featured.filter(isHalf).length
+const lastHalf = projects.featured.reduce((last, p, i) => (isHalf(p, i) ? i : last), -1)
+
 export default function Projects() {
   return (
     <section id="projects" className="band band-white" aria-labelledby="projects-h">
@@ -24,7 +29,7 @@ export default function Projects() {
 
         <Reveal as="ul" className="pgrid" stagger={0.1} y={60}>
           {projects.featured.map((p, i) => (
-            <Tile key={p.name} p={p} hero={i === 0} />
+            <Tile key={p.name} p={p} hero={i === 0} wide={i === lastHalf && halfCount % 2 === 1} />
           ))}
         </Reveal>
 
@@ -45,9 +50,9 @@ export default function Projects() {
   )
 }
 
-function Tile({ p, hero }: { p: Project; hero: boolean }) {
+function Tile({ p, hero, wide }: { p: Project; hero: boolean; wide?: boolean }) {
   const dark = p.kind === 'research'
-  const cls = ['ptile', hero && 'ptile-hero', dark && 'ptile-research ptile-dark', p.kind === 'client' && 'ptile-client', p.mock && 'ptile-mock'].filter(Boolean).join(' ')
+  const cls = ['ptile', (hero || wide) && 'ptile-hero', dark && 'ptile-research ptile-dark', p.kind === 'client' && 'ptile-client', p.mock && 'ptile-mock'].filter(Boolean).join(' ')
 
   return (
     <li className={cls}>

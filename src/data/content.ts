@@ -27,7 +27,7 @@ export const site = {
   url: 'https://abhi21121211.github.io',
   email: 'abhishekdukare689@gmail.com',
   github: 'https://github.com/abhi21121211',
-  linkedin: 'https://www.linkedin.com/in/abhishek-dukare-937156257/',
+  linkedin: 'https://www.linkedin.com/in/abhishek-dukare',
   resume: '/resume/Abhishek_Dukare_AI_Engineer_Resume.pdf',
   locations: ['Bengaluru', 'Pune', 'Hyderabad', 'Remote'],
   webforge: 'https://webforge.in',
