@@ -131,9 +131,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hero-ctas { display: flex; gap: 28px; justify-content: center; align-items: center; flex-wrap: wrap; }
 
 /* ── robot skills section (scroll-scrubbed video + orbit) ───── */
-.rh { position: relative; background: #000; color: #f5f5f7; }
-.rh-anchor { position: absolute; left: 0; width: 1px; height: 1px; }
-.rh-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: #05060a; transform-origin: 50% 40%; will-change: transform; }
+.rh-section { position: relative; background: #05060a; color: #f5f5f7; padding-bottom: 96px; }
+.rh-stage { position: relative; height: 100vh; height: 100svh; min-height: 560px; overflow: hidden; background: #05060a; }
+.rh-replay { position: absolute; right: max(22px, 4vw); top: 72px; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 980px; font-size: 13px; font-weight: 500; color: #fff; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); transition: background 0.2s; }
+.rh-replay:hover { background: rgba(255, 255, 255, 0.2); }
+.rh-list { margin-top: 56px; }
+.rh-list-title { font-size: clamp(24px, 2.6vw, 32px); font-weight: 600; margin-bottom: 8px; }
 .rh-video { position: absolute; inset: 0; width: 100%; height: 100%; }
 .rh-cover { object-fit: cover; }
 .rh-contain { object-fit: contain; object-position: 50% 42%; }
@@ -162,10 +165,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .rh-outro-sub { font-size: clamp(17px, 1.5vw, 21px); color: #a1a1a6; max-width: 640px; margin: 18px auto 26px; font-weight: 500; }
 .rh-loading { position: absolute; right: 22px; bottom: 18px; font-size: 12px; color: #8e8e93; font-variant-numeric: tabular-nums; }
 .rh .orbit-tip { z-index: 5; }
-.rh-static { background: #000; color: #f5f5f7; padding: 48px 0 96px; }
-.rh-static-media img { width: 100%; max-height: 70vh; object-fit: cover; }
+.rh-static { padding-top: 48px; }
+.rh-static img { width: 100%; max-height: 70vh; object-fit: cover; }
 .rh-static-text { margin-top: -140px; position: relative; }
-.rh-static-skills { margin: 72px 0 28px; }
 @media (max-width: 734px) {
   .rh-intro { max-width: 88vw; }
   .rh-shade { background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 40%), linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 30%); }
@@ -259,9 +261,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* flat (phones / reduced motion) */
 .orbit-video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; margin: 28px auto 8px; -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent); mask-image: linear-gradient(to bottom, #000 80%, transparent); }
 .orbit-flat { display: grid; gap: 28px; margin-top: 24px; }
-.flat-group h3 { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 600; color: #f5f5f7; margin-bottom: 12px; }
-.flat-group h3 i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); box-shadow: 0 0 12px var(--c); }
-.flat-group h3 span { color: #8e8e93; font-size: 15px; font-weight: 500; }
+.flat-group h3, .flat-group h4 { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 600; color: #f5f5f7; margin-bottom: 12px; }
+.flat-group h3 i, .flat-group h4 i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); box-shadow: 0 0 12px var(--c); }
+.flat-group h3 span, .flat-group h4 span { color: #8e8e93; font-size: 15px; font-weight: 500; }
 .flat-group ul { display: flex; flex-wrap: wrap; gap: 8px; }
 .flat-group li { display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px; border-radius: 14px; font-size: 14px; color: #f5f5f7; background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 -12px 20px -16px var(--c); }
 .flat-group li svg { width: 16px; height: 16px; fill: #fff; flex: none; }
