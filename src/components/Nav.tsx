@@ -5,7 +5,7 @@ import { scrollToTarget } from '../lib/lenis'
 
 const links = [
   { id: 'about', label: 'About' },
-  { id: 'ingestiq', label: 'IngestIQ' },
+  { id: 'research', label: 'Research' },
   { id: 'work', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Toolkit' },

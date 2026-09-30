@@ -5,7 +5,7 @@ import Footer from './components/Footer'
 import CommandPalette from './components/CommandPalette'
 import Hero from './sections/Hero'
 import About from './sections/About'
-import IngestIQ from './sections/IngestIQ'
+import Research from './sections/Research'
 import RobotSkills from './sections/RobotSkills'
 import Work from './sections/Work'
 import Projects from './sections/Projects'
@@ -27,7 +27,7 @@ export default function App() {
       <main id="main">
         <Hero />
         <About />
-        <IngestIQ />
+        <Research />
         <RobotSkills />
         <Work />
         <Projects />
