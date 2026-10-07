@@ -14,19 +14,14 @@ const smooth = (x: number) => x * x * (3 - 2 * x)
  * pinning. The video autoplays (muted) when it comes into view: walk →
  * spin/transform → hands spread, where 65 glass skill tiles burst out and
  * orbit the glowing ring. It stops on the ring frame with the orbit live
- * (drag / hover / click a group). The full skill list follows as plain text.
+ * (drag / hover / click a group). The full skill list is its own section
+ * (SkillList).
  */
 export default function RobotSkills() {
   const [mode] = useState<'play' | 'static'>(() => (prefersReducedMotion() || !supportsWebGL() ? 'static' : 'play'))
   return (
     <section id="skills" className="rh-section" data-nav="dark" aria-labelledby="rh-title">
       {mode === 'play' ? <Stage /> : <StaticStage />}
-      <div className="wrap rh-list">
-        <h3 className="rh-list-title">
-          All {orbitGroups.reduce((n, g) => n + g.tiles.length, 0)} skills, by group
-        </h3>
-        <SkillList />
-      </div>
     </section>
   )
 }
@@ -255,33 +250,6 @@ function StaticStage() {
           {light.film.sub}
         </p>
       </div>
-    </div>
-  )
-}
-
-function SkillList() {
-  return (
-    <div className="orbit-flat">
-      {orbitGroups.map((g) => (
-        <div key={g.id} className="flat-group">
-          <h4 style={{ '--c': g.color } as React.CSSProperties}>
-            <i aria-hidden="true" />
-            {g.name} <span>{g.tiles.length}</span>
-          </h4>
-          <ul>
-            {g.tiles.map((t) => (
-              <li key={t.full} style={{ '--c': g.color } as React.CSSProperties}>
-                {t.icon && (
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d={t.icon.path} />
-                  </svg>
-                )}
-                <span>{t.full}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
     </div>
   )
 }

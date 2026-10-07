@@ -274,6 +274,23 @@ export const projects: { label: string; heading: string; featured: Project[]; ar
       ],
     },
     {
+      name: 'FinOps Agent',
+      tagline: 'AI accounts-payable agent for Indian small businesses',
+      kind: 'research',
+      desc: 'Reads vendor invoices (PDF or phone scan) with a vision LLM, then checks them with plain code — GSTIN checksum, GST maths, duplicates — and matches each against its purchase order and bank payments, including part-payments and TDS. Clean invoices are approved automatically; anything doubtful pauses for a human, and the pause survives restarts. A 100-invoice eval set runs in CI and blocks any change that makes the agent worse.',
+      tech: ['LangGraph', 'FastAPI', 'Next.js', 'PostgreSQL', 'GitHub Actions eval gate', '$0/month on free tiers'],
+      stats: [
+        { v: '99.93%', l: 'field-level extraction accuracy' },
+        { v: '0', l: 'false auto-approvals' },
+        { v: '70.5%', l: 'invoices approved with no human' },
+        { v: '153', l: 'automated tests' },
+      ],
+      links: [
+        { label: 'Live demo', href: 'https://fin-ops-v1.vercel.app' },
+        { label: 'GitHub', href: 'https://github.com/abhi21121211/finops-agent' },
+      ],
+    },
+    {
       name: 'Nivesh AI',
       tagline: 'Money Manager AI — personal finance with an AI assistant',
       kind: 'app',

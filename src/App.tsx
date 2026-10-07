@@ -7,6 +7,7 @@ import Hero from './sections/Hero'
 import About from './sections/About'
 import Research from './sections/Research'
 import RobotSkills from './sections/RobotSkills'
+import SkillList from './sections/SkillList'
 import Work from './sections/Work'
 import Projects from './sections/Projects'
 import Webforge from './sections/Webforge'
@@ -29,6 +30,7 @@ export default function App() {
         <About />
         <Research />
         <RobotSkills />
+        <SkillList />
         <Work />
         <Projects />
         <Webforge />

@@ -75,7 +75,8 @@ type Ring = { root: THREE.Group; spinner: THREE.Group; line: THREE.LineLoop; spe
 
 export function createRobotOrbit(canvas: HTMLCanvasElement, groups: OrbitGroup[], onTip: (t: Tip) => void, onPick: (group: number) => void): RobotOrbitApi {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' })
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75))
+  // Capped low: a full-screen canvas at retina density competes with the video for the GPU.
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1))
   renderer.setClearColor(0x000000, 0)
   renderer.outputColorSpace = THREE.SRGBColorSpace
   renderer.toneMapping = THREE.ACESFilmicToneMapping
@@ -266,10 +267,19 @@ export function createRobotOrbit(canvas: HTMLCanvasElement, groups: OrbitGroup[]
   const ease = (t: number) => 1 - Math.pow(1 - t, 3)
   const backOut = (t: number) => 1 + 2.2 * Math.pow(t - 1, 3) + 1.2 * Math.pow(t - 1, 2)
 
+  let cleared = false
+  let tipShown = false
   const frame = () => {
     raf = 0
     if (!visible) return
     const dt = Math.min(clock.getDelta(), 0.05)
+    // Nothing is drawn until the tiles burst out — don't render empty frames over the video.
+    if (reveal <= 0 && dissolve <= 0) {
+      if (!cleared) (renderer.clear(), (cleared = true))
+      raf = requestAnimationFrame(frame)
+      return
+    }
+    cleared = false
     // Drag moves spinOffset; hand the change to the rings this frame.
     if (!dragging) {
       spinOffset += spinVel
@@ -318,6 +328,7 @@ export function createRobotOrbit(canvas: HTMLCanvasElement, groups: OrbitGroup[]
       const alpha = Math.min(1, r * 3) * (1 - behind * centre * 0.85) * (1 - torso * (1 - behind) * 0.55) * (1 - ring.dim * 0.7) * (1 - dissolve)
       ;(t.box.material as THREE.MeshPhysicalMaterial).opacity = 0.8 * alpha
       ;(t.face.material as THREE.MeshBasicMaterial).opacity = alpha
+      t.mesh.visible = alpha > 0.001
       t.mesh.renderOrder = Math.round(t.mesh.position.z * 100)
     }
 
@@ -334,7 +345,8 @@ export function createRobotOrbit(canvas: HTMLCanvasElement, groups: OrbitGroup[]
       const d = show.box.userData
       show.mesh.getWorldPosition(v1).project(camera)
       onTip({ label: d.label, group: d.group, color: d.color, x: ((v1.x + 1) / 2) * W, y: ((1 - v1.y) / 2) * H })
-    } else onTip(null)
+      tipShown = true
+    } else if (tipShown) (onTip(null), (tipShown = false))
 
     renderer.render(scene, camera)
     raf = requestAnimationFrame(frame)
